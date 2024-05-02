@@ -4,6 +4,4 @@ fetch('https://restcountries.com/v3.1/region/europe')
 
         console.log(data[0].flags.png)
         const img = document.createElement('img');
-        img.src = data[0].flags.png;
-        document.body.appendChild(img);
     })
