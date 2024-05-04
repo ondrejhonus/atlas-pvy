@@ -4,3 +4,14 @@ body{
     font-family: 'Roboto';font-size: 22px;
 
 }
+.img-flag{
+    height: 160px;
+    object-fit: cover;
+}
+.card{
+    margin: 10px;
+}
+h1.title{
+    font-size: 120px;
+    text-align: center;
+}
