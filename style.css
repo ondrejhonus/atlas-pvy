@@ -1,8 +1,9 @@
 body{
     background: #000;
-    color: #fff;
-    font-family: 'Roboto';font-size: 22px;
-
+    color: #fff; 
+}
+main{
+    margin-top: 5em;
 }
 .img-flag{
     height: 160px;
@@ -12,11 +13,17 @@ body{
     margin: 10px;
 }
 h1.title{
-    font-size: 120px;
+    margin-top: 1em;
+    font-size: 50px;
     text-align: center;
 }
 p{
-    font-size: 20px;
+    font-size: 16px;
+    line-height: 1;
+}
+h5{
+    font-size: 18px;
+
 }
 .strong{
     font-weight: bold;
@@ -28,6 +35,5 @@ div.search {
     align-items: end;
     justify-content: right;
 }
-.search-bar{
-    width: 20%;
-}
+
+
