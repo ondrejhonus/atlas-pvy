@@ -10,19 +10,30 @@ GOOGLE MAP EMBED CODE
     allowfullscreen></iframe></div>
  */
 
-fetch("https://restcountries.com/v3.1/region/europe")
+const regionSelect = document.getElementById("region");
+let selectedRegion = regionSelect.value;
+
+function selectRegion(region = selectedRegion) {
+  fetch(`https://restcountries.com/v3.1/region/${region}`)
   .then((response) => response.json())
   .then((data) => {
     countriesData = data;
     renderCountries(data);
   });
+};
+selectRegion();
+
+regionSelect.addEventListener("change", function (e) {
+  selectedRegion = e.target.value;
+  selectRegion(selectedRegion);
+});
 
 function renderCountries(data) {
   const statesElement = document.getElementById("states");
   statesElement.innerHTML = "";
 
   data.forEach((country) => {
-    let state = `<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 country animate__animated animate__fadeInUp animate__faster" 
+    let state = `<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 country" 
     onclick="popup('${country.name.common}')">
         <div class="card country-card">
             <img class="card-img-top img-flag" src="${
@@ -72,4 +83,29 @@ document.getElementById("search").addEventListener("input", function (e) {
     country.name.common.toLowerCase().includes(query)
   );
   renderCountries(filteredCountries);
+});
+
+document.getElementById("darkmode-check").addEventListener("change", function (e) {
+  const bodyElement = document.querySelector("body");
+  const icons = document.querySelectorAll(".bi");
+  const navbar = document.querySelector(".navbar");
+  if (e.target.checked) {
+    bodyElement.setAttribute("data-bs-theme", "light");
+    bodyElement.removeAttribute("data-bs-theme", "dark");
+    icons.forEach((icon) => {
+      icon.classList.remove("text-light");
+      icon.classList.add("text-dark");
+    });
+    navbar.classList.remove("navbar-border-light");
+    navbar.classList.add("navbar-border-dark");
+  } else {
+    bodyElement.removeAttribute("data-bs-theme", "light");
+    bodyElement.setAttribute("data-bs-theme", "dark");
+    icons.forEach((icon) => {
+      icon.classList.remove("text-dark");
+      icon.classList.add("text-light");
+    });
+    navbar.classList.remove("navbar-border-dark");
+    navbar.classList.add("navbar-border-light");
+  }
 });

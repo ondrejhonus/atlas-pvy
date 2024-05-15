@@ -1,9 +1,11 @@
+
 body{
-    background: #000;
     color: #fff; 
+    transition: all .3s ease;
 }
 main{
     margin-top: 5em;
+    width: 90% !important;
 }
 .img-flag{
     height: 160px;
@@ -11,6 +13,7 @@ main{
 }
 .card{
     margin: 10px;
+    height: 20em;
 }
 h1.title{
     margin-top: 1em;
@@ -34,6 +37,43 @@ div.search {
     margin: auto;
     align-items: end;
     justify-content: right;
+    justify-self: right;
+}
+main{
+    animation: fadeInUp; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 1s; /* don't forget to set a duration! */
+}
+div.country:hover{
+    animation: pulse; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: .5s; /* don't forget to set a duration! */
+    cursor: pointer;
 }
 
+.navbar-border-light{
+    border-bottom: 2px solid rgb(255, 255, 255);
 
+}
+.navbar-border-dark{
+    border-bottom: 2px solid rgb(32, 32, 32);
+}
+div.form-switch{
+    font-size: 30px;
+    margin-right: 10px;
+}
+/* Custom Scrollbar */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0);
+}
