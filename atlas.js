@@ -122,12 +122,16 @@ document.getElementById("search").addEventListener("input", function (e) {
 document
   .getElementById("darkmode-check")
   .addEventListener("change", function (e) {
+    const modal = document.querySelector(".modal");
     const bodyElement = document.querySelector("body");
+    const htmlElement = document.querySelector("html");
     const icons = document.querySelectorAll(".bi");
     const navbar = document.querySelector(".navbar");
     if (e.target.checked) {
       bodyElement.setAttribute("data-bs-theme", "light");
       bodyElement.removeAttribute("data-bs-theme", "dark");
+      modal.classList.add("text-dark");
+      modal.classList.remove("text-light");
       icons.forEach((icon) => {
         icon.classList.remove("text-light");
         icon.classList.add("text-dark");
@@ -137,6 +141,8 @@ document
     } else {
       bodyElement.removeAttribute("data-bs-theme", "light");
       bodyElement.setAttribute("data-bs-theme", "dark");
+      modal.classList.remove("text-dark");
+      modal.classList.add("text-light");
       icons.forEach((icon) => {
         icon.classList.remove("text-dark");
         icon.classList.add("text-light");
